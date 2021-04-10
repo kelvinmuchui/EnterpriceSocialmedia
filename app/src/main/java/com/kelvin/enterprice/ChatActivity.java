@@ -76,7 +76,8 @@ public class ChatActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         hisUid = intent.getStringExtra("hisUid");
-
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        myUid = user.getUid();
         db = FirebaseFirestore.getInstance();
 
         CollectionReference reRef = db.collection("User");
@@ -129,6 +130,7 @@ public class ChatActivity extends AppCompatActivity {
                     chatList.clear();
                     for (QueryDocumentSnapshot documentSnapshot: task.getResult()){
                         ModelConversation conversation = documentSnapshot.toObject(ModelConversation.class);
+
                         if (conversation.getConversation_from_users_id().equals(myUid)&& conversation.getConversation_to_user_id().equals(hisUid)
                         || conversation.getConversation_to_user_id().equals(myUid)&& conversation.getConversation_from_users_id().equals(hisUid)
                         ){

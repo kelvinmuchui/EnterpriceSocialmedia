@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PaymentActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tv1"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Payment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvName"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Jane Doe"
+        android:layout_below="@id/tv1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvAmount"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="40000"
+        android:layout_below="@id/tv1"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentRight="true"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/amountEt"
+        android:background="@drawable/edittextstyle"
+        android:padding="10dp"
+        android:hint="Enter Amount"
+        android:layout_margin="20dp"
+        android:layout_below="@id/tvName"
+        android:singleLine="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/amountEt"
+        android:padding="10dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/spinArea"/>
+
+    <Button
+        android:id="@+id/pUploadbtn"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="Pay"
+        android:layout_below="@id/spinArea"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

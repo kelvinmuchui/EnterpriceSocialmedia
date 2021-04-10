@@ -83,13 +83,7 @@ public class Main2Activity extends AppCompatActivity {
                             ft3.commit();
                             return true;
 
-                        case R.id.nav_chat:
-                            actionBar.setTitle("Chats");
-                            ChatListFragment fragment4 = new ChatListFragment();
-                            FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
-                            ft4.replace(R.id.content, fragment4, "");
-                            ft4.commit();
-                            return true;
+
 
                     }
                     return false;
@@ -103,6 +97,12 @@ public class Main2Activity extends AppCompatActivity {
             // mProfileTv.setText(user.getEmail());
 
             mUID = user.getUid();
+            String email = user.getEmail();
+
+            if(email.contains("donar")){
+                startActivity(new Intent(this, PActivity.class));
+                finish();
+            }
 
             SharedPreferences sp = getSharedPreferences("SP_USER", MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();

@@ -1,9 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PledgeActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/pTitleEt"
+            android:background="@drawable/edittextstyle"
+            android:padding="10dp"
+           android:text="Fund Pledge"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+        <EditText
+            android:id="@+id/pDescriptionEt"
+            android:background="@drawable/edittextstyle"
+            android:padding="10dp"
+            android:hint="Enter why you This amount"
+            android:inputType="textCapSentences|textMultiLine"
+            android:minHeight="120dp"
+            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/pAmount"
+            android:background="@drawable/edittextstyle"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Amount"
+            android:inputType="numberDecimal"
+            android:gravity="start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/pUploadbtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:text="Pledge"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+
+        android:padding="10dp"
+        android:text="Pledges"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="16dp"
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/pledge_recyclerView"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

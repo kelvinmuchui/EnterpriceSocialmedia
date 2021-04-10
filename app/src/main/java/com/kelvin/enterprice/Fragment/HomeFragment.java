@@ -31,8 +31,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.kelvin.enterprice.Adapters.AdapterPosts;
 import com.kelvin.enterprice.Adapters.AdapterUsers;
 import com.kelvin.enterprice.AddPostActivity;
+import com.kelvin.enterprice.MeetingActivity;
 import com.kelvin.enterprice.Model.ModelPost;
 import com.kelvin.enterprice.Model.ModelUser;
+import com.kelvin.enterprice.PledgeActivity;
 import com.kelvin.enterprice.R;
 import com.kelvin.enterprice.RegisterActivity;
 
@@ -159,6 +161,14 @@ public class HomeFragment extends Fragment {
         if (id == R.id.action_add_post){
             startActivity(new Intent(getActivity(), AddPostActivity.class));
         }
+        if (id == R.id.action_pledge){
+            startActivity(new Intent(getActivity(), PledgeActivity.class));
+        }
+        if (id == R.id.action_meeting){
+            startActivity(new Intent(getActivity(), MeetingActivity.class));
+        }
+
+
         return super.onOptionsItemSelected(item);
     }
     private void checkUserStatus() {

@@ -92,8 +92,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
                 String username = mEmailEt.getText().toString().trim();
                 String password = mpasswordEt.getText().toString().trim();
-                String email = username+"@"+"gmail.com";
 
+
+                String userRank = userType.getSelectedItem().toString();
                 //validate
                 if(username.isEmpty()){
                     //set error and focuss
@@ -106,7 +107,15 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                     mpasswordEt.setText("Password length at least 6 characters");
                     mpasswordEt.setFocusable(true);
                 }else{
-                    registerUser(email,password);
+                    if(userRank.equals("Admin")) {
+                        String email = username+"donar@"+"gmail.com";
+                        registerUser(email, password);
+
+                    }else {
+                        String email = username+"@"+"gmail.com";
+                        registerUser(email, password);
+
+                    }
                 }
 
             }
@@ -145,16 +154,20 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
                             if(userRank.equals("Admin")){
                                 addLogin(password,"Admin");
                                 addDonnor(loginId,username,address,age,lastname,firstname,phone);
+                                Toast.makeText(RegisterActivity.this, "Registered....\n"+username, Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this, PActivity.class));
+                                finish();
                             }else {
                                 addLogin(password,"User");
                                 addUser(loginId,username,address,age,lastname,firstname,phone);
+                                Toast.makeText(RegisterActivity.this, "Registered....\n"+username, Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this, Main2Activity.class));
+                                finish();
                             }
 
 
 
-                            Toast.makeText(RegisterActivity.this, "Registered....\n"+username, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this, DashBoardUserActivity.class));
-                            finish();
+
                         }else{
                             Toast.makeText(RegisterActivity.this, "Authenitaction failed", Toast.LENGTH_SHORT).show();
                         }

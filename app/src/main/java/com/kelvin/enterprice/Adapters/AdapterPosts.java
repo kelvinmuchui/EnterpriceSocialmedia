@@ -16,9 +16,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kelvin.enterprice.ChatActivity;
 import com.kelvin.enterprice.FirebaseQuery;
 import com.kelvin.enterprice.Model.ModelPost;
 import com.kelvin.enterprice.Model.ModelUser;
+import com.kelvin.enterprice.PostDetailActivity;
 import com.kelvin.enterprice.R;
 
 import java.util.Calendar;
@@ -52,7 +54,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
     public void onBindViewHolder(@NonNull MyHolder holder, final int i) {
         final String uid = postList.get(i).getPost_user_id();
 //        String uName = postList.get(i).getuName();
-        String pId = postList.get(i).getPost_id();
+        final String pId = postList.get(i).getPost_id();
         String pDescr = postList.get(i).getPost_message();
 
         String pTimeStamp = postList.get(i).getPost_date_time();
@@ -90,7 +92,18 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, "Comment", Toast.LENGTH_SHORT).show();
+
+
+
+
+
+                        Intent intent = new Intent(context, PostDetailActivity.class);
+                        intent.putExtra("postId", pId);
+                        context.startActivity(intent);
+
+
+
+
             }
         });
 
@@ -143,7 +156,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             moreBtn = itemView.findViewById(R.id.moreBtn);
             comentBtn = itemView.findViewById(R.id.commentBtn);
             shareBtn = itemView.findViewById(R.id.shareBtn);
-            profileLayout = itemView.findViewById(R.id.profileLayout);
+           profileLayout = itemView.findViewById(R.id.parofileLayout);
 
 
         }
